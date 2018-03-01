@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Shortcodes class.
+ * Haste_Shortcodes class.
  *
  * Built Shortcodes.
  *
- * @package  Odin
+ * @package  Haste
  * @category Shortcodes
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Shortcodes {
+class Haste_Shortcodes {
 
 	/**
 	 * Construct Post Type.
@@ -67,7 +67,7 @@ class Odin_Shortcodes {
 		$html .= ( $type ) ? ' btn-' . esc_attr( $type ) : '';
 		$html .= ( $size ) ? ' btn-' . esc_attr( $size ) : '';
 		$html .= ( $class ) ? ' ' . esc_attr( $class ) : '';
-		$html .= ( $tooltip ) ? ' odin-tooltip' : '';
+		$html .= ( $tooltip ) ? ' haste-tooltip' : '';
 		$html .= '"';
 		$html .= ( $tooltip ) ? ' data-placement="' . esc_attr( $direction ) . '" data-toggle="tooltip" data-original-title="' . esc_attr( $tooltip ) . '"' : '';
 		$html .= '>';
@@ -362,7 +362,7 @@ class Odin_Shortcodes {
 	 * @return string          Tabs HTML.
 	 */
 	function tabs( $atts, $content = null ) {
-		return '<ul class="nav nav-tabs odin-tabs" role="tablist">' . str_replace( '<br />', '', do_shortcode( $content ) ) . '</ul>';
+		return '<ul class="nav nav-tabs haste-tabs" role="tablist">' . str_replace( '<br />', '', do_shortcode( $content ) ) . '</ul>';
 	}
 
 	/**
@@ -463,10 +463,10 @@ class Odin_Shortcodes {
 	 */
 	function accordions( $atts, $content = null ) {
 		extract( shortcode_atts( array(
-			'id' => 'odin-accordion',
+			'id' => 'haste-accordion',
 		), $atts ) );
 
-		$html = '<div class="panel-group odin-accordion" id="' . esc_attr( $id ) . '">';
+		$html = '<div class="panel-group haste-accordion" id="' . esc_attr( $id ) . '">';
 		$html .= str_replace( '<br />', '', do_shortcode( $content ) );
 		$html .= '</div>';
 
@@ -483,7 +483,7 @@ class Odin_Shortcodes {
 	 */
 	function accordion( $atts, $content = null ) {
 		extract( shortcode_atts( array(
-			'id'     => 'odin-accordion',
+			'id'     => 'haste-accordion',
 			'title'  => '',
 			'type'   => 'default',
 			'active' => false
@@ -523,7 +523,7 @@ class Odin_Shortcodes {
 			'direction' => 'top'
 		), $atts ) );
 
-		$html = '<a class="odin-tooltip" data-original-title="' . esc_attr( $title ) . '" href="' . esc_url( $link ) .'" data-placement="' . esc_attr( $direction ) . '" data-toggle="tooltip">';
+		$html = '<a class="haste-tooltip" data-original-title="' . esc_attr( $title ) . '" href="' . esc_url( $link ) .'" data-placement="' . esc_attr( $direction ) . '" data-toggle="tooltip">';
 		$html .= do_shortcode( $content );
 		$html .= '</a>';
 
@@ -540,7 +540,7 @@ class Odin_Shortcodes {
 	 */
 	function map( $atts, $content = null ) {
 		extract( shortcode_atts( array(
-			'id'                => 'odin_map',
+			'id'                => 'haste_map',
 			'latitude'          => '0',
 			'longitude'         => '0',
 			'zoom'              => '10',
@@ -565,10 +565,10 @@ class Odin_Shortcodes {
 		// JS var.
 		$id = str_replace( '-', '_', $id );
 
-		$html = '<div class="odin-map" id="' . esc_attr( $id ) . '" style="width: ' . esc_attr( $width ) . 'px; height: ' . esc_attr( $height ) . 'px;"></div>';
+		$html = '<div class="haste-map" id="' . esc_attr( $id ) . '" style="width: ' . esc_attr( $width ) . 'px; height: ' . esc_attr( $height ) . 'px;"></div>';
 
 		$js = '<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>';
-		$html .= apply_filters( 'odin_map_shortcode_js_' . $id, $js );
+		$html .= apply_filters( 'haste_map_shortcode_js_' . $id, $js );
 		$html .= '<script type="text/javascript">var latlng = new google.maps.LatLng(' . esc_js( $latitude ) . ', ' . esc_js($longitude ) . ');var myOptions = {zoom: ' . esc_js( $zoom ) . ',center: latlng,scrollwheel: ' . esc_js( $scrollwheel ) .',scaleControl: ' . esc_js( $scale ) .',disableDefaultUI: ' . esc_js( $hidecontrols ) .',mapTypeId: google.maps.MapTypeId.' . esc_js( $maptype ) . '};var ' .esc_js(  $id ) . ' = new google.maps.Map(document.getElementById("' . esc_js( $id ) . '"), myOptions);';
 
 		// Kml.
@@ -732,4 +732,4 @@ class Odin_Shortcodes {
 	}
 }
 
-new Odin_Shortcodes;
+new Haste_Shortcodes;

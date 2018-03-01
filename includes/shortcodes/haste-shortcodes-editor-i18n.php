@@ -5,7 +5,7 @@ if ( ! defined('ABSPATH' ) ) {
 }
 
 $strings = 'tinyMCE.addI18n({' . _WP_Editors::$mce_locale . ': {
-	odin: {
+	haste: {
 		shortcode_title: "' . esc_js( __( 'JTFO [shortcodes]', 'jtfo' ) ) . '",
 		id: "' . esc_js( __( 'Id', 'jtfo' ) ) . '",
 		default: "' . esc_js( __( 'padrão', 'jtfo' ) ) . '",
@@ -84,7 +84,7 @@ $strings = 'tinyMCE.addI18n({' . _WP_Editors::$mce_locale . ': {
 		infowindowdefault: "' . esc_js( __( 'Janela de informação padrão', 'jtfo' ) ) . '",
 		hidecontrols: "' . esc_js( __( 'Esconder controles', 'jtfo' ) ) . '",
 		scale: "' . esc_js( __( 'Escala', 'jtfo' ) ) . '",
-		scrollwheel: "' . esc_js( __( 'Rodinha do mouse', 'jtfo' ) ) . '",
+		scrollwheel: "' . esc_js( __( 'Rhasteha do mouse', 'jtfo' ) ) . '",
 		map: "' . esc_js( __( 'Mapa', 'jtfo' ) ) . '",
 		accordion: "' . esc_js( __( 'Accordion', 'jtfo' ) ) . '",
 		accordions_id: "' . esc_js( __( 'Id do Accordion', 'jtfo' ) ) . '",

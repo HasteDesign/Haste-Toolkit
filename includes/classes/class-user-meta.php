@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_User_Meta class.
+ * Haste_User_Meta class.
  *
  * Built user meta fields.
  *
- * @package  Odin
+ * @package  Haste
  * @category User Meta
  * @author   WPBrasil
  * @version  2.2.5
  */
-class Odin_User_Meta {
+class Haste_User_Meta {
 
 	/**
 	 * User meta fields.
@@ -57,19 +57,19 @@ class Odin_User_Meta {
 		wp_enqueue_script( 'jquery-ui-sortable' );
 
 		// user_meta.
-		wp_enqueue_script( 'odin-admin', get_template_directory_uri() . '/core/assets/js/admin.js', array( 'jquery' ), null, true );
-		wp_enqueue_style( 'odin-admin', get_template_directory_uri() . '/core/assets/css/admin.css', array(), null, 'all' );
+		wp_enqueue_script( 'haste-admin', get_template_directory_uri() . '/core/assets/js/admin.js', array( 'jquery' ), null, true );
+		wp_enqueue_style( 'haste-admin', get_template_directory_uri() . '/core/assets/css/admin.css', array(), null, 'all' );
 
 		// Localize strings.
 		wp_localize_script(
-			'odin-admin',
-			'odinAdminParams',
+			'haste-admin',
+			'hasteAdminParams',
 			array(
-				'galleryTitle'  => __( 'Add images in gallery', 'odin' ),
-				'galleryButton' => __( 'Add in gallery', 'odin' ),
-				'galleryRemove' => __( 'Remove image', 'odin' ),
-				'uploadTitle'   => __( 'Choose a file', 'odin' ),
-				'uploadButton'  => __( 'Add file', 'odin' ),
+				'galleryTitle'  => __( 'Add images in gallery', 'haste' ),
+				'galleryButton' => __( 'Add in gallery', 'haste' ),
+				'galleryRemove' => __( 'Remove image', 'haste' ),
+				'uploadTitle'   => __( 'Choose a file', 'haste' ),
+				'uploadButton'  => __( 'Add file', 'haste' ),
 			)
 		);
 	}
@@ -106,14 +106,14 @@ class Odin_User_Meta {
 
 			echo $title;
 
-			echo apply_filters( 'odin_user_meta_field_before_' . $this->id, '<td>', $field );
+			echo apply_filters( 'haste_user_meta_field_before_' . $this->id, '<td>', $field );
 			$this->process_fields( $field );
 
 			if ( isset( $field['description'] ) ) {
 				echo sprintf( '<span class="description">%s</span>', $field['description'] );
 			}
 
-			echo apply_filters( 'odin_user_meta_field_after_' . $this->id, '</td>', $field );
+			echo apply_filters( 'haste_user_meta_field_after_' . $this->id, '</td>', $field );
 
 			echo '</tr>';
 
@@ -175,7 +175,7 @@ class Odin_User_Meta {
 				$this->field_editor( $id, $current, $options );
 				break;
 			case 'color':
-				$this->field_input( $id, $current, array_merge( array( 'class' => 'odin-color-field' ), $attrs ) );
+				$this->field_input( $id, $current, array_merge( array( 'class' => 'haste-color-field' ), $attrs ) );
 				break;
 			case 'upload':
 				$this->field_upload( $id, $current, $attrs );
@@ -188,7 +188,7 @@ class Odin_User_Meta {
 				break;
 
 			default:
-				do_action( 'odin_user_meta_field_' . $this->id, $type, $id, $current, $options, $attrs );
+				do_action( 'haste_user_meta_field_' . $this->id, $type, $id, $current, $options, $attrs );
 				break;
 		}
 	}
@@ -340,7 +340,7 @@ class Odin_User_Meta {
 	 * @return string          HTML of the field.
 	 */
 	protected function field_upload( $id, $current, $attrs ) {
-		echo sprintf( '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="regular-text"%4$s /> <input class="button odin-upload-button" type="button" value="%3$s" /><br />', $id, esc_url( $current ), __( 'Select file', 'odin' ), $this->build_field_attributes( $attrs ) );
+		echo sprintf( '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="regular-text"%4$s /> <input class="button haste-upload-button" type="button" value="%3$s" /><br />', $id, esc_url( $current ), __( 'Select file', 'haste' ), $this->build_field_attributes( $attrs ) );
 	}
 
 	/**
@@ -355,7 +355,7 @@ class Odin_User_Meta {
 
 		// Gets placeholder image.
 		$image = get_template_directory_uri() . '/core/assets/images/placeholder.png';
-		$html  = '<div class="odin-upload-image">';
+		$html  = '<div class="haste-upload-image">';
 		$html  .= '<span class="default-image">' . $image . '</span>';
 
 		if ( $current ) {
@@ -363,7 +363,7 @@ class Odin_User_Meta {
 			$image = $image[0];
 		}
 
-		$html .= sprintf( '<input id="%1$s" name="%1$s" type="hidden" class="image" value="%2$s" /><img src="%3$s" class="preview" style="height: 150px; width: 150px;" alt="" /><input id="%1$s-button" class="button" type="button" value="%4$s" /><ul class="actions"><li><a href="#" class="delete" title="%5$s"><span class="dashicons dashicons-no"></span></a></li></ul>', $id, $current, $image, __( 'Select image', 'odin' ), __( 'Remove image', 'odin' ) );
+		$html .= sprintf( '<input id="%1$s" name="%1$s" type="hidden" class="image" value="%2$s" /><img src="%3$s" class="preview" style="height: 150px; width: 150px;" alt="" /><input id="%1$s-button" class="button" type="button" value="%4$s" /><ul class="actions"><li><a href="#" class="delete" title="%5$s"><span class="dashicons dashicons-no"></span></a></li></ul>', $id, $current, $image, __( 'Select image', 'haste' ), __( 'Remove image', 'haste' ) );
 
 		$html .= '<br class="clear" />';
 		$html .= '</div>';
@@ -380,8 +380,8 @@ class Odin_User_Meta {
 	 * @return string          HTML of the field.
 	 */
 	protected function field_image_plupload( $id, $current ) {
-		$html = '<div class="odin-gallery-container">';
-			$html .= '<ul class="odin-gallery-images">';
+		$html = '<div class="haste-gallery-container">';
+			$html .= '<ul class="haste-gallery-images">';
 				if ( ! empty( $current ) ) {
 					// Gets the current images.
 					$attachments = array_filter( explode( ',', $current ) );
@@ -391,7 +391,7 @@ class Odin_User_Meta {
 							$html .= sprintf( '<li class="image" data-attachment_id="%1$s">%2$s<ul class="actions"><li><a href="#" class="delete" title="%3$s"><span class="dashicons dashicons-no"></span></a></li></ul></li>',
 								$attachment_id,
 								wp_get_attachment_image( $attachment_id, 'thumbnail' ),
-								__( 'Remove image', 'odin' )
+								__( 'Remove image', 'haste' )
 							);
 						}
 					}
@@ -399,10 +399,10 @@ class Odin_User_Meta {
 			$html .= '</ul><div class="clear"></div>';
 
 			// Adds the hidden input.
-			$html .= sprintf( '<input type="hidden" class="odin-gallery-field" name="%s" value="%s" />', $id, $current );
+			$html .= sprintf( '<input type="hidden" class="haste-gallery-field" name="%s" value="%s" />', $id, $current );
 
 			// Adds "adds images in gallery" url.
-			$html .= sprintf( '<p class="odin-gallery-add hide-if-no-js"><a href="#">%s</a></p>', __( 'Add images in gallery', 'odin' ) );
+			$html .= sprintf( '<p class="haste-gallery-add hide-if-no-js"><a href="#">%s</a></p>', __( 'Add images in gallery', 'haste' ) );
 		$html .= '</div>';
 
 		echo $html;
@@ -428,7 +428,7 @@ class Odin_User_Meta {
 		foreach ( $this->fields as $field ) {
 			$name = $field['id'];
 			$old  = get_user_meta( $user_id, $name, true );
-			$new  = apply_filters( 'odin_save_user_meta_' . $this->id, $_POST[ $name ], $name );
+			$new  = apply_filters( 'haste_save_user_meta_' . $this->id, $_POST[ $name ], $name );
 
 			if ( $new && $new != $old ) {
 				update_user_meta( $user_id, $name, $new );

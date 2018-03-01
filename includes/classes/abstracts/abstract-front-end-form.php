@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Front_End_Form class.
+ * Haste_Front_End_Form class.
  *
  * Built Front-end Forms.
  *
- * @package  Odin
+ * @package  Haste
  * @category Front-end Form
  * @author   WPBrasil
  * @version  2.3.1
  */
-abstract class Odin_Front_End_Form {
+abstract class Haste_Front_End_Form {
 
 	/**
 	 * Form fields.
@@ -208,7 +208,7 @@ abstract class Odin_Front_End_Form {
 			foreach ( $this->fields as $key => $fieldset ) {
 				$fieldset_attributes  = isset( $fieldset['attributes'] ) ? $fieldset['attributes'] : array();
 
-				$html .= sprintf( '<fieldset id="odin-form-fieldset-%s" %s>', $key, $this->process_attributes( $fieldset_attributes ) );
+				$html .= sprintf( '<fieldset id="haste-form-fieldset-%s" %s>', $key, $this->process_attributes( $fieldset_attributes ) );
 				$html .= isset( $fieldset['legend'] ) ? '<legend>' . $fieldset['legend'] . '</legend>' : '';
 
 				foreach ( $fieldset['fields'] as $field ) {
@@ -257,7 +257,7 @@ abstract class Odin_Front_End_Form {
 							break;
 
 						default:
-							$html .= do_action( 'odin_front_end_form_field_' . $this->id, $id, $label, $default, $description, $attributes, $options );
+							$html .= do_action( 'haste_front_end_form_field_' . $this->id, $id, $label, $default, $description, $attributes, $options );
 							break;
 					}
 				}
@@ -290,7 +290,7 @@ abstract class Odin_Front_End_Form {
 				);
 			}
 		} else {
-			$html .= '<button type="submit" class="btn btn-primary">' . __( 'Submit', 'odin' ) . '</button>';
+			$html .= '<button type="submit" class="btn btn-primary">' . __( 'Submit', 'haste' ) . '</button>';
 		}
 
 		$html .= '</div>';
@@ -333,7 +333,7 @@ abstract class Odin_Front_End_Form {
 			if ( ! empty( $this->success ) ) {
 				$html .= '<p>' . $this->success . '</p>';
 			} else {
-				$html .= '<p>' . __( 'Form submitted successfully!', 'odin' ) . '</p>';
+				$html .= '<p>' . __( 'Form submitted successfully!', 'haste' ) . '</p>';
 			}
 			$html .= '</div>';
 		}
@@ -376,7 +376,7 @@ abstract class Odin_Front_End_Form {
 			$attributes['class'] = 'form-control';
 		}
 
-		$html = sprintf( '<div class="form-group odin-form-group-%s">', $id );
+		$html = sprintf( '<div class="form-group haste-form-group-%s">', $id );
 		$html .= sprintf( '<label for="%s"%s>%s%s</label>', $id, $this->process_label_class( $label['class'] ), $label['text'], $this->required_field_alert( $attributes ) );
 		$html .= sprintf( '<input id="%1$s" name="%1$s" value="%2$s"%3$s />', $id, $default, $this->process_attributes( $attributes ) );
 		$html .= ! empty( $description ) ? '<span class="help-block">' . $description . '</span>' : '';
@@ -430,7 +430,7 @@ abstract class Odin_Front_End_Form {
 			$attributes['rows'] = '4';
 		}
 
-		$html = sprintf( '<div class="form-group odin-form-group-%s">', $id );
+		$html = sprintf( '<div class="form-group haste-form-group-%s">', $id );
 		$html .= sprintf( '<label for="%s"%s>%s%s</label>', $id, $this->process_label_class( $label['class'] ), $label['text'], $this->required_field_alert( $attributes ) );
 		$html .= sprintf( '<textarea id="%1$s" name="%1$s"%2$s>%3$s</textarea>', $id, $this->process_attributes( $attributes ), $default );
 		$html .= ! empty( $description ) ? '<span class="help-block">' . $description . '</span>' : '';
@@ -456,7 +456,7 @@ abstract class Odin_Front_End_Form {
 			$attributes['checked'] = 'checked';
 		}
 
-		$html = sprintf( '<div class="checkbox odin-form-group-%s">', $id );
+		$html = sprintf( '<div class="checkbox haste-form-group-%s">', $id );
 		$html .= sprintf( '<label for="%s"%s>', $id, $this->process_label_class( $label['class'] ) );
 		$html .= sprintf( '<input type="checkbox" id="%1$s" name="%1$s" value="1"%2$s />', $id, $this->process_attributes( $attributes ) );
 		$html .= ' ' . $label['text'] . $this->required_field_alert( $attributes ) . '</label>';
@@ -487,7 +487,7 @@ abstract class Odin_Front_End_Form {
 		// If multiple add a array in the option.
 		$multiple = ( in_array( 'multiple', $attributes ) ) ? '[]' : '';
 
-		$html = sprintf( '<div class="form-group odin-form-group-%s">', $id );
+		$html = sprintf( '<div class="form-group haste-form-group-%s">', $id );
 		$html .= sprintf( '<label for="%s"%s>%s%s</label>', $id, $this->process_label_class( $label['class'] ), $label['text'], $this->required_field_alert( $attributes ) );
 		$html .= sprintf( '<select id="%1$s" name="%1$s%2$s"%3$s>', $id, $multiple, $this->process_attributes( $attributes ) );
 
@@ -518,7 +518,7 @@ abstract class Odin_Front_End_Form {
 	 * @return string              HTML of the field.
 	 */
 	protected function field_radio( $id, $label, $default, $description, $attributes, $options ) {
-		$html = sprintf( '<div class="form-group odin-form-group-%s">', $id );
+		$html = sprintf( '<div class="form-group haste-form-group-%s">', $id );
 		$html .= sprintf( '<label for="%s"%s>%s%s</label>', $id, $this->process_label_class( $label['class'] ), $label['text'], $this->required_field_alert( $attributes ) );
 		$html .= '<div class="form-radio-group">';
 
@@ -606,25 +606,25 @@ abstract class Odin_Front_End_Form {
 					$required = isset( $field['required'] ) && $field['required'] ? true : false;
 
 					if ( $type != 'file' && $required && empty( $data[ $id ] ) ) {
-						$this->set_errors( sprintf( __( '%s is required.', 'odin' ), '<strong>' . $label . '</strong>' ) );
+						$this->set_errors( sprintf( __( '%s is required.', 'haste' ), '<strong>' . $label . '</strong>' ) );
 					}
 
 					switch ( $type ) {
 						case 'email':
 							if ( ! is_email( $value ) ) {
-								$this->set_errors( sprintf( __( '%s must be an email address valid.', 'odin' ), '<strong>' . $label . '</strong>' ) );
+								$this->set_errors( sprintf( __( '%s must be an email address valid.', 'haste' ), '<strong>' . $label . '</strong>' ) );
 							}
 							break;
 						case 'file':
 							if ( count($files) >= 1 ) {
 								if ( $required && empty( $files[ $id ]['name'] ) ) {
-									$this->set_errors( sprintf( __( '%s is required.', 'odin' ), '<strong>' . $label . '</strong>' ) );
+									$this->set_errors( sprintf( __( '%s is required.', 'haste' ), '<strong>' . $label . '</strong>' ) );
 								}
 							}
 							break;
 
 						default:
-							$custom_message = apply_filters( 'odin_front_end_form_valid_' . $this->id . '_' . $id, '', $label, $value );
+							$custom_message = apply_filters( 'haste_front_end_form_valid_' . $this->id . '_' . $id, '', $label, $value );
 							if ( $custom_message ) {
 								$this->set_errors( $custom_message );
 							}
@@ -651,7 +651,7 @@ abstract class Odin_Front_End_Form {
 		@ob_clean();
 
 		$url = $this->get_current_page();
-		$url = apply_filters( 'odin_front_end_form_redirect_' . $this->id, add_query_arg( 'success', '1', $url ) );
+		$url = apply_filters( 'haste_front_end_form_redirect_' . $this->id, add_query_arg( 'success', '1', $url ) );
 
 		wp_redirect( $url, 303 );
 
@@ -677,7 +677,7 @@ abstract class Odin_Front_End_Form {
 					$attachment_id = media_handle_upload( $id, 0 );
 
 					if ( is_wp_error( $attachment_id ) ) {
-						$error = apply_filters( 'odin_front_end_form_upload_error_' . $this->id, sprintf( '%s %s.', '<strong>' . $this->get_field_label( $id ) . '</strong>', $attachment_id->get_error_message() ) );
+						$error = apply_filters( 'haste_front_end_form_upload_error_' . $this->id, sprintf( '%s %s.', '<strong>' . $this->get_field_label( $id ) . '</strong>', $attachment_id->get_error_message() ) );
 						$this->set_errors( $error );
 					} else {
 						$attachments[ $id ] = array(
@@ -700,18 +700,18 @@ abstract class Odin_Front_End_Form {
 		$submitted_data = $this->submitted_form_data();
 		$uploaded_files = $this->get_attachments();
 
-		if ( ! empty( $submitted_data ) && isset( $submitted_data['odin_form_action'] ) && $this->id == $submitted_data['odin_form_action'] ) {
+		if ( ! empty( $submitted_data ) && isset( $submitted_data['haste_form_action'] ) && $this->id == $submitted_data['haste_form_action'] ) {
 			// Validates the form data.
 			$this->validate_form_data();
 
 			if ( $this->is_valid() ) {
 				// Hook to process submitted form data.
-				do_action( 'odin_front_end_form_submitted_data_' . $this->id, $submitted_data, $uploaded_files );
+				do_action( 'haste_front_end_form_submitted_data_' . $this->id, $submitted_data, $uploaded_files );
 
 				// Redirect after submit.
 				$this->redirect();
 			} else {
-				add_filter( 'odin_front_end_form_messages_' . $this->id, array( $this, 'display_error_messages' ) );
+				add_filter( 'haste_front_end_form_messages_' . $this->id, array( $this, 'display_error_messages' ) );
 			}
 		}
 	}
@@ -726,7 +726,7 @@ abstract class Odin_Front_End_Form {
 		$html = '';
 
 		// Display error messages.
-		$html .= apply_filters( 'odin_front_end_form_messages_' . $this->id, $html );
+		$html .= apply_filters( 'haste_front_end_form_messages_' . $this->id, $html );
 
 		// Display success message.
 		$html .= $this->display_success_message();
@@ -743,11 +743,11 @@ abstract class Odin_Front_End_Form {
 			$this->process_attributes( array_merge( array( 'class' => 'form' ), $this->attributes ) )
 		);
 
-			$html .= do_action( 'odin_front_end_form_before_fields_' . $this->id );
+			$html .= do_action( 'haste_front_end_form_before_fields_' . $this->id );
 			$html .= $fields;
-			$html .= do_action( 'odin_front_end_form_after_fields_' . $this->id );
+			$html .= do_action( 'haste_front_end_form_after_fields_' . $this->id );
 			$html .= $this->process_buttons();
-			$html .= sprintf( '<input type="hidden" name="odin_form_action" value="%s" />', $this->id );
+			$html .= sprintf( '<input type="hidden" name="haste_form_action" value="%s" />', $this->id );
 		$html .= '</form>';
 
 		return $html;

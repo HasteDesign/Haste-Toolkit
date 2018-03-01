@@ -3,193 +3,193 @@
 	/**
 	 * Add the shortcodes downdown.
 	 */
-	tinymce.PluginManager.add( 'odin_shortcodes', function( editor ) {
+	tinymce.PluginManager.add( 'haste_shortcodes', function( editor ) {
 		var ed      = tinymce.activeEditor;
-		var odin_ui = new Odin_Shortcode_UI( editor, ed );
+		var haste_ui = new Haste_Shortcode_UI( editor, ed );
 
 		editor.addButton(
 			'jtfo', {
-				text: ed.getLang( 'odin.shortcode_title' ),
+				text: ed.getLang( 'haste.shortcode_title' ),
 				type: 'menubutton',
 
 				menu: [ {
 					text   : 'Olho',
 					onclick: function() {
-						odin_ui.olho();
+						haste_ui.olho();
 					}
 				},
 				{
 					text   : 'Citação',
 					onclick: function() {
-						odin_ui.citacao();
+						haste_ui.citacao();
 					}
 				},{
-					text   : ed.getLang( 'odin.button' ),
+					text   : ed.getLang( 'haste.button' ),
 					onclick: function() {
-						odin_ui.button();
+						haste_ui.button();
 					}
 				}, {
-					text   : ed.getLang( 'odin.group_button' ),
+					text   : ed.getLang( 'haste.group_button' ),
 					onclick: function() {
-						odin_ui.group_button();
+						haste_ui.group_button();
 					}
 				}, {
-					text   : ed.getLang( 'odin.alert' ),
+					text   : ed.getLang( 'haste.alert' ),
 					onclick: function() {
-						odin_ui.alert();
+						haste_ui.alert();
 					}
 				}, {
-					text   : ed.getLang( 'odin.label' ),
+					text   : ed.getLang( 'haste.label' ),
 					onclick: function() {
-						odin_ui.label();
+						haste_ui.label();
 					}
 				}, {
-					text   : ed.getLang( 'odin.badge' ),
+					text   : ed.getLang( 'haste.badge' ),
 					onclick: function() {
-						odin_ui.badge();
+						haste_ui.badge();
 					}
 				}, {
-					text   : ed.getLang( 'odin.icon' ),
+					text   : ed.getLang( 'haste.icon' ),
 					onclick: function() {
-						odin_ui.icon();
+						haste_ui.icon();
 					}
 				}, {
-					text   : ed.getLang( 'odin.well' ),
+					text   : ed.getLang( 'haste.well' ),
 					onclick: function() {
-						odin_ui.well();
+						haste_ui.well();
 					}
 				}, {
-					text   : ed.getLang( 'odin.table' ),
+					text   : ed.getLang( 'haste.table' ),
 					onclick: function() {
-						odin_ui.table();
+						haste_ui.table();
 					}
 				}, {
-					text   : ed.getLang( 'odin.grid' ),
+					text   : ed.getLang( 'haste.grid' ),
 					onclick: function() {
-						odin_ui.grids();
+						haste_ui.grids();
 					}
 				}, {
-					text   : ed.getLang( 'odin.progress_bar' ),
+					text   : ed.getLang( 'haste.progress_bar' ),
 					onclick: function() {
-						odin_ui.progress();
+						haste_ui.progress();
 					}
 				}, {
-					text   : ed.getLang( 'odin.panel' ),
+					text   : ed.getLang( 'haste.panel' ),
 					onclick: function() {
-						odin_ui.panel();
+						haste_ui.panel();
 					}
 				}, {
-					text   : ed.getLang( 'odin.tabs' ),
+					text   : ed.getLang( 'haste.tabs' ),
 					onclick: function() {
-						odin_ui.tabs();
+						haste_ui.tabs();
 					}
 				}, {
-					text   : ed.getLang( 'odin.accordion' ),
+					text   : ed.getLang( 'haste.accordion' ),
 					onclick: function() {
-						odin_ui.accordion();
+						haste_ui.accordion();
 					}
 				}, {
-					text   : ed.getLang( 'odin.tooltip' ),
+					text   : ed.getLang( 'haste.tooltip' ),
 					onclick: function() {
-						odin_ui.tooltip();
+						haste_ui.tooltip();
 					}
 				}, {
-					text   : ed.getLang( 'odin.map' ),
+					text   : ed.getLang( 'haste.map' ),
 					onclick: function() {
-						odin_ui.map();
+						haste_ui.map();
 					}
 				}, {
-					text   : ed.getLang( 'odin.clear' ),
+					text   : ed.getLang( 'haste.clear' ),
 					onclick: function() {
-						odin_ui.clear();
+						haste_ui.clear();
 					}
 				}, {
-					text   : ed.getLang( 'odin.qrcode' ),
+					text   : ed.getLang( 'haste.qrcode' ),
 					onclick: function() {
-						odin_ui.qrcode();
+						haste_ui.qrcode();
 					}
 				} ]
 			} );
 	} );
 })();
 
-function Odin_Shortcode_UI( _editor, _ed ) {
+function Haste_Shortcode_UI( _editor, _ed ) {
 	var editor = _editor;
 	var ed     = _ed;
 
 	this.button = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.button' ),
+			title   : ed.getLang( 'haste.button' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'text',
-				label: ed.getLang( 'odin.text' )
+				label: ed.getLang( 'haste.text' )
 			}, {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.default' ),
+					text : ed.getLang( 'haste.default' ),
 					value: 'default'
 				}, {
-					text : ed.getLang( 'odin.success' ),
+					text : ed.getLang( 'haste.success' ),
 					value: 'success'
 				}, {
-					text : ed.getLang( 'odin.warning' ),
+					text : ed.getLang( 'haste.warning' ),
 					value: 'warning'
 				}, {
-					text : ed.getLang( 'odin.danger' ),
+					text : ed.getLang( 'haste.danger' ),
 					value: 'danger'
 				}, {
-					text : ed.getLang( 'odin.link' ),
+					text : ed.getLang( 'haste.link' ),
 					value: 'link'
 				} ]
 			}, {
 				type  : 'listbox',
 				name  : 'size',
-				label : ed.getLang( 'odin.size' ),
+				label : ed.getLang( 'haste.size' ),
 				values: [ {
-					text : ed.getLang( 'odin.lg' ),
+					text : ed.getLang( 'haste.lg' ),
 					value: 'lg'
 				}, {
-					text : ed.getLang( 'odin.sm' ),
+					text : ed.getLang( 'haste.sm' ),
 					value: 'sm'
 				}, {
-					text : ed.getLang( 'odin.xs' ),
+					text : ed.getLang( 'haste.xs' ),
 					value: 'xs'
 				} ]
 			}, {
 				type : 'textbox',
 				name : 'link',
 				id   : 'link_button_input',
-				label: ed.getLang( 'odin.link' )
+				label: ed.getLang( 'haste.link' )
 			}, {
 				type : 'textbox',
 				name : 'class_css',
 				id   : 'class_button_input',
-				label: ed.getLang( 'odin.class' )
+				label: ed.getLang( 'haste.class' )
 			}, {
 				type : 'textbox',
 				name : 'tooltip',
-				label: ed.getLang( 'odin.tooltip' )
+				label: ed.getLang( 'haste.tooltip' )
 			}, {
 				type  : 'listbox',
 				name  : 'direction',
-				label : ed.getLang( 'odin.direction' ),
+				label : ed.getLang( 'haste.direction' ),
 				values: [ {
-					text : ed.getLang( 'odin.default' ),
+					text : ed.getLang( 'haste.default' ),
 					value: 'default'
 				}, {
-					text : ed.getLang( 'odin.top' ),
+					text : ed.getLang( 'haste.top' ),
 					value: 'top'
 				}, {
-					text : ed.getLang( 'odin.right' ),
+					text : ed.getLang( 'haste.right' ),
 					value: 'right'
 				}, {
-					text : ed.getLang( 'odin.left' ),
+					text : ed.getLang( 'haste.left' ),
 					value: 'left'
 				}, {
-					text : ed.getLang( 'odin.bottom' ),
+					text : ed.getLang( 'haste.bottom' ),
 					value: 'bottom'
 				} ]
 			} ],
@@ -215,37 +215,37 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.group_button = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.group_button' ),
+			title   : ed.getLang( 'haste.group_button' ),
 			minWidth: 300,
 			body    : [ {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.vertical' ),
+					text : ed.getLang( 'haste.vertical' ),
 					value: 'vertical'
 				}, {
-					text : ed.getLang( 'odin.group' ),
+					text : ed.getLang( 'haste.group' ),
 					value: 'group'
 				} ]
 			}, {
 				type  : 'listbox',
 				name  : 'size',
-				label : ed.getLang( 'odin.size' ),
+				label : ed.getLang( 'haste.size' ),
 				values: [ {
-					text : ed.getLang( 'odin.lg' ),
+					text : ed.getLang( 'haste.lg' ),
 					value: 'lg'
 				}, {
-					text : ed.getLang( 'odin.sm' ),
+					text : ed.getLang( 'haste.sm' ),
 					value: 'sm'
 				}, {
-					text : ed.getLang( 'odin.xs' ),
+					text : ed.getLang( 'haste.xs' ),
 					value: 'xs'
 				} ]
 			}, {
 				type   : 'checkbox',
 				name   : 'justified',
-				label  : ed.getLang( 'odin.justified' ),
+				label  : ed.getLang( 'haste.justified' ),
 				checked: false
 			} ],
 			onsubmit: function( e ) {
@@ -259,35 +259,35 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.alert = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.alert' ),
+			title   : ed.getLang( 'haste.alert' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' ),
+				label: ed.getLang( 'haste.content' ),
 				minHeight: 200,
 				minWidth: 300,
 				multiline: true
 			}, {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.success' ),
+					text : ed.getLang( 'haste.success' ),
 					value: 'success'
 				}, {
-					text : ed.getLang( 'odin.info' ),
+					text : ed.getLang( 'haste.info' ),
 					value: 'info'
 				}, {
-					text : ed.getLang( 'odin.warning' ),
+					text : ed.getLang( 'haste.warning' ),
 					value: 'warning'
 				}, {
-					text : ed.getLang( 'odin.danger' ),
+					text : ed.getLang( 'haste.danger' ),
 					value: 'danger'
 				} ]
 			}, {
 				type   : 'checkbox',
 				name   : 'close',
-				label  : ed.getLang( 'odin.close' ),
+				label  : ed.getLang( 'haste.close' ),
 				checked: false
 			} ],
 			onsubmit: function( e ) {
@@ -301,29 +301,29 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.label = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.label' ),
+			title   : ed.getLang( 'haste.label' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' )
+				label: ed.getLang( 'haste.content' )
 			}, {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.default' ),
+					text : ed.getLang( 'haste.default' ),
 					value: 'default'
 				}, {
-					text : ed.getLang( 'odin.success' ),
+					text : ed.getLang( 'haste.success' ),
 					value: 'success'
 				}, {
-					text : ed.getLang( 'odin.info' ),
+					text : ed.getLang( 'haste.info' ),
 					value: 'info'
 				}, {
-					text : ed.getLang( 'odin.warning' ),
+					text : ed.getLang( 'haste.warning' ),
 					value: 'warning'
 				}, {
-					text : ed.getLang( 'odin.danger' ),
+					text : ed.getLang( 'haste.danger' ),
 					value: 'danger'
 				} ]
 			} ],
@@ -336,11 +336,11 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.badge = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.badge' ),
+			title   : ed.getLang( 'haste.badge' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' )
+				label: ed.getLang( 'haste.content' )
 			} ],
 			onsubmit: function( e ) {
 				var type = 'type="' + e.data.type + '" ';
@@ -351,15 +351,15 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.grids = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.grid' ),
+			title   : ed.getLang( 'haste.grid' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'columns',
-				label: ed.getLang( 'odin.columns' )
+				label: ed.getLang( 'haste.columns' )
 			}, {
 				type : 'textbox',
 				name : 'rows',
-				label: ed.getLang( 'odin.rows' )
+				label: ed.getLang( 'haste.rows' )
 			} ],
 			onsubmit: function( e ) {
 				var rows          = e.data.rows,
@@ -382,12 +382,12 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.icon = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.icon' ),
+			title   : ed.getLang( 'haste.icon' ),
 			minWidth: 200,
 			body    : [ {
 				type : 'textbox',
 				name : 'icon',
-				label: ed.getLang( 'odin.icon' ),
+				label: ed.getLang( 'haste.icon' ),
 			} ],
 
 			onsubmit: function( e ) {
@@ -399,11 +399,11 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.well = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.well' ),
+			title   : ed.getLang( 'haste.well' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' ),
+				label: ed.getLang( 'haste.content' ),
 				minHeight: 200,
 				minWidth: 300,
 				multiline: true
@@ -417,40 +417,40 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.table = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.table' ),
+			title   : ed.getLang( 'haste.table' ),
 			minWidth: 500,
 			body    : [ {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.striped' ),
+					text : ed.getLang( 'haste.striped' ),
 					value: 'striped'
 				}, {
-					text : ed.getLang( 'odin.hover' ),
+					text : ed.getLang( 'haste.hover' ),
 					value: 'hover'
 				}, {
-					text : ed.getLang( 'odin.condensed' ),
+					text : ed.getLang( 'haste.condensed' ),
 					value: 'condensed'
 				}, {
-					text : ed.getLang( 'odin.responsive' ),
+					text : ed.getLang( 'haste.responsive' ),
 					value: 'responsive'
 				} ]
 			}, {
 				type   : 'checkbox',
 				name   : 'border',
-				label  : ed.getLang( 'odin.border' ),
+				label  : ed.getLang( 'haste.border' ),
 				checked: false
 			}, {
 				type : 'textbox',
 				name : 'cols',
 				id   : 'cols_table_input',
-				label: ed.getLang( 'odin.cols' ),
+				label: ed.getLang( 'haste.cols' ),
 			}, {
 				type : 'textbox',
 				name : 'rows',
 				id   : 'rows_table_input',
-				label: ed.getLang( 'odin.rows' ),
+				label: ed.getLang( 'haste.rows' ),
 			} ],
 			onsubmit: function( e ) {
 				var type   = 'type="' + e.data.type + '" ',
@@ -468,48 +468,48 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.progress = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.progress' ),
+			title   : ed.getLang( 'haste.progress' ),
 			body    : [ {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.success' ),
+					text : ed.getLang( 'haste.success' ),
 					value: 'striped'
 				}, {
-					text : ed.getLang( 'odin.info' ),
+					text : ed.getLang( 'haste.info' ),
 					value: 'info'
 				}, {
-					text : ed.getLang( 'odin.warning' ),
+					text : ed.getLang( 'haste.warning' ),
 					value: 'warning '
 				}, {
-					text : ed.getLang( 'odin.danger' ),
+					text : ed.getLang( 'haste.danger' ),
 					value: 'danger'
 				} ]
 			}, {
 				type  : 'listbox',
 				name  : 'class_css',
-				label : ed.getLang( 'odin.class' ),
+				label : ed.getLang( 'haste.class' ),
 				values: [ {
-					text : ed.getLang( 'odin.progress_striped' ),
+					text : ed.getLang( 'haste.progress_striped' ),
 					value: 'progress-striped'
 				}, {
-					text : ed.getLang( 'odin.active' ),
+					text : ed.getLang( 'haste.active' ),
 					value: 'active'
 				} ]
 			}, {
 				type : 'slider',
 				name : 'value',
-				label: ed.getLang( 'odin.value_progress' ),
+				label: ed.getLang( 'haste.value_progress' ),
 			}, {
 				type : 'textbox',
 				name : 'max',
-				label: ed.getLang( 'odin.max' ),
+				label: ed.getLang( 'haste.max' ),
 				value: '100'
 			}, {
 				type : 'textbox',
 				name : 'min',
-				label: ed.getLang( 'odin.min' ),
+				label: ed.getLang( 'haste.min' ),
 				value: '0'
 			} ],
 			onsubmit: function( e ) {
@@ -526,11 +526,11 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.panel = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.panel' ),
+			title   : ed.getLang( 'haste.panel' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' ),
+				label: ed.getLang( 'haste.content' ),
 				minHeight: 200,
 				minWidth: 300,
 				multiline: true
@@ -541,24 +541,24 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 			}, {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.default' ),
+					text : ed.getLang( 'haste.default' ),
 					value: 'default'
 				}, {
-					text : ed.getLang( 'odin.info' ),
+					text : ed.getLang( 'haste.info' ),
 					value: 'info'
 				}, {
-					text : ed.getLang( 'odin.primary' ),
+					text : ed.getLang( 'haste.primary' ),
 					value: 'primary'
 				}, {
-					text : ed.getLang( 'odin.success' ),
+					text : ed.getLang( 'haste.success' ),
 					value: 'success'
 				}, {
-					text : ed.getLang( 'odin.warning' ),
+					text : ed.getLang( 'haste.warning' ),
 					value: 'warning'
 				}, {
-					text : ed.getLang( 'odin.danger' ),
+					text : ed.getLang( 'haste.danger' ),
 					value: 'danger'
 				} ]
 			} ],
@@ -572,12 +572,12 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.tabs = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.tabs' ),
+			title   : ed.getLang( 'haste.tabs' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'tabs',
 				id   : 'childs_tabs_input',
-				label: ed.getLang( 'odin.childs' ),
+				label: ed.getLang( 'haste.childs' ),
 			} ],
 			onsubmit: function( e ) {
 				var tabs          = e.data.tabs,
@@ -604,38 +604,38 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.accordion = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.accordion' ),
+			title   : ed.getLang( 'haste.accordion' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'accordions_id',
-				label: ed.getLang( 'odin.accordions_id' ),
-				value: 'odin-accordion'
+				label: ed.getLang( 'haste.accordions_id' ),
+				value: 'haste-accordion'
 			}, {
 				type : 'textbox',
 				name : 'childs',
 				id   : 'childs_accordion_input',
-				label: ed.getLang( 'odin.childs' ),
+				label: ed.getLang( 'haste.childs' ),
 			}, {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
-					text : ed.getLang( 'odin.default' ),
+					text : ed.getLang( 'haste.default' ),
 					value: 'default'
 				}, {
-					text : ed.getLang( 'odin.info' ),
+					text : ed.getLang( 'haste.info' ),
 					value: 'info'
 				}, {
-					text : ed.getLang( 'odin.primary' ),
+					text : ed.getLang( 'haste.primary' ),
 					value: 'primary'
 				}, {
-					text : ed.getLang( 'odin.success' ),
+					text : ed.getLang( 'haste.success' ),
 					value: 'success'
 				}, {
-					text : ed.getLang( 'odin.warning' ),
+					text : ed.getLang( 'haste.warning' ),
 					value: 'warning '
 				}, {
-					text : ed.getLang( 'odin.danger' ),
+					text : ed.getLang( 'haste.danger' ),
 					value: 'danger '
 				} ]
 			} ],
@@ -662,35 +662,35 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.tooltip = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.tooltip' ),
+			title   : ed.getLang( 'haste.tooltip' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'title',
-				label: ed.getLang( 'odin.title' )
+				label: ed.getLang( 'haste.title' )
 			}, {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' )
+				label: ed.getLang( 'haste.content' )
 			}, {
 				type : 'textbox',
 				name : 'link',
 				id   : 'link_tooltip_input',
-				label: ed.getLang( 'odin.link' )
+				label: ed.getLang( 'haste.link' )
 			}, {
 				type  : 'listbox',
 				name  : 'direction',
-				label : ed.getLang( 'odin.direction' ),
+				label : ed.getLang( 'haste.direction' ),
 				values: [ {
-					text : ed.getLang( 'odin.top' ),
+					text : ed.getLang( 'haste.top' ),
 					value: 'top'
 				}, {
-					text : ed.getLang( 'odin.right' ),
+					text : ed.getLang( 'haste.right' ),
 					value: 'right'
 				}, {
-					text : ed.getLang( 'odin.left' ),
+					text : ed.getLang( 'haste.left' ),
 					value: 'left'
 				}, {
-					text : ed.getLang( 'odin.bottom' ),
+					text : ed.getLang( 'haste.bottom' ),
 					value: 'success'
 				} ]
 			} ],
@@ -713,21 +713,21 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 
 	this.qrcode = function() {
 		editor.windowManager.open( {
-			title   : ed.getLang( 'odin.qrcode' ),
+			title   : ed.getLang( 'haste.qrcode' ),
 			body    : [ {
 				type : 'textbox',
 				name : 'data',
 				id   : 'data_qr_input',
-				label: ed.getLang( 'odin.data' )
+				label: ed.getLang( 'haste.data' )
 			}, {
 				type : 'textbox',
 				name : 'size',
-				label: ed.getLang( 'odin.size' ),
+				label: ed.getLang( 'haste.size' ),
 				value: '150x150'
 			}, {
 				type : 'textbox',
 				name : 'title',
-				label: ed.getLang( 'odin.title' )
+				label: ed.getLang( 'haste.title' )
 			} ],
 			onsubmit: function( e ) {
 				var data  = 'data="' + e.data.data + '" ',
@@ -747,119 +747,119 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 			minHeight: 300,
 			maxWidth : 700,
 			minWidth : 450,
-			title    : ed.getLang( 'odin.map' ),
+			title    : ed.getLang( 'haste.map' ),
 			id       : 'map-shortcode-panel',
 			body     : [ {
 
 				type : 'textbox',
 				name : 'id',
-				value: 'odin_gmap',
-				label: ed.getLang( 'odin.id' )
+				value: 'haste_gmap',
+				label: ed.getLang( 'haste.id' )
 			}, {
 				type : 'textbox',
 				name : 'latitude',
 				id   : 'lat_map_input',
-				label: ed.getLang( 'odin.latitude' )
+				label: ed.getLang( 'haste.latitude' )
 			}, {
 				type : 'textbox',
 				name : 'longitude',
 				id   : 'long_map_input',
-				label: ed.getLang( 'odin.longitude' )
+				label: ed.getLang( 'haste.longitude' )
 			}, {
 				type : 'textbox',
 				name : 'zoom',
 				value: '10',
-				label: ed.getLang( 'odin.zoom' )
+				label: ed.getLang( 'haste.zoom' )
 			}, {
 				type : 'textbox',
 				name : 'width',
 				value: '600',
-				label: ed.getLang( 'odin.width' )
+				label: ed.getLang( 'haste.width' )
 			}, {
 				type : 'textbox',
 				name : 'height',
 				value: '400',
-				label: ed.getLang( 'odin.height' )
+				label: ed.getLang( 'haste.height' )
 			}, {
 				type  : 'listbox',
 				name  : 'maptype',
-				label : ed.getLang( 'odin.maptype' ),
+				label : ed.getLang( 'haste.maptype' ),
 				values: [ {
-					text : ed.getLang( 'odin.ROADMAP' ),
+					text : ed.getLang( 'haste.ROADMAP' ),
 					value: 'ROADMAP'
 				}, {
-					text : ed.getLang( 'odin.SATELLITE' ),
+					text : ed.getLang( 'haste.SATELLITE' ),
 					value: 'SATELLITE'
 				}, {
-					text : ed.getLang( 'odin.HYBRID' ),
+					text : ed.getLang( 'haste.HYBRID' ),
 					value: 'HYBRID'
 				}, {
-					text : ed.getLang( 'odin.TERRAIN' ),
+					text : ed.getLang( 'haste.TERRAIN' ),
 					value: 'TERRAIN'
 				} ]
 			}, {
 				type : 'textbox',
 				name : 'address',
-				label: ed.getLang( 'odin.address' )
+				label: ed.getLang( 'haste.address' )
 			}, {
 				type : 'textbox',
 				name : 'kml',
 				id   : 'kml_map_input',
-				label: ed.getLang( 'odin.kml' )
+				label: ed.getLang( 'haste.kml' )
 			}, {
 				type   : 'checkbox',
 				name   : 'kmlautofit',
-				label  : ed.getLang( 'odin.kmlautofit' ),
+				label  : ed.getLang( 'haste.kmlautofit' ),
 				checked: false
 			}, {
 				type   : 'checkbox',
 				name   : 'marker',
-				label  : ed.getLang( 'odin.marker' ),
+				label  : ed.getLang( 'haste.marker' ),
 				checked: false
 			}, {
 				type : 'textbox',
 				name : 'markerimage',
 				id   : 'markerimg_map_input',
-				label: ed.getLang( 'odin.markerimage' )
+				label: ed.getLang( 'haste.markerimage' )
 			}, {
 				type   : 'checkbox',
 				name   : 'traffic',
-				label  : ed.getLang( 'odin.traffic' ),
+				label  : ed.getLang( 'haste.traffic' ),
 				checked: false
 			}, {
 				type   : 'checkbox',
 				name   : 'bike',
-				label  : ed.getLang( 'odin.bike' ),
+				label  : ed.getLang( 'haste.bike' ),
 				checked: false
 			}, {
 				type : 'textbox',
 				name : 'fusion',
-				label: ed.getLang( 'odin.fusion' ),
+				label: ed.getLang( 'haste.fusion' ),
 
 			}, {
 				type : 'textbox',
 				name : 'infowindow',
-				label: ed.getLang( 'odin.infowindow' ),
+				label: ed.getLang( 'haste.infowindow' ),
 
 			}, {
 				type   : 'checkbox',
 				name   : 'infowindowdefault',
-				label  : ed.getLang( 'odin.infowindowdefault' ),
+				label  : ed.getLang( 'haste.infowindowdefault' ),
 				checked: false
 			}, {
 				type   : 'checkbox',
 				name   : 'hidecontrols',
-				label  : ed.getLang( 'odin.hidecontrols' ),
+				label  : ed.getLang( 'haste.hidecontrols' ),
 				checked: false
 			}, {
 				type   : 'checkbox',
 				name   : 'scale',
-				label  : ed.getLang( 'odin.scale' ),
+				label  : ed.getLang( 'haste.scale' ),
 				checked: false
 			}, {
 				type   : 'checkbox',
 				name   : 'scrollwheel',
-				label  : ed.getLang( 'odin.scrollwheel' ),
+				label  : ed.getLang( 'haste.scrollwheel' ),
 				checked: true
 			} ],
 			onsubmit : function( e ) {
@@ -901,14 +901,14 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 			body    : [ {
 				type : 'textbox',
 				name : 'content',
-				label: ed.getLang( 'odin.content' ),
+				label: ed.getLang( 'haste.content' ),
 				minHeight: 200,
 				minWidth: 300,
 				multiline: true
 			}, {
 				type  : 'listbox',
 				name  : 'type',
-				label : ed.getLang( 'odin.type' ),
+				label : ed.getLang( 'haste.type' ),
 				values: [ {
 					text : 'Esquerda',
 					value: 'alignleft'
@@ -934,7 +934,7 @@ function Odin_Shortcode_UI( _editor, _ed ) {
 				{
 					type : 'textbox',
 					name : 'content',
-					label: ed.getLang( 'odin.content' ),
+					label: ed.getLang( 'haste.content' ),
 					minHeight: 200,
 					minWidth: 300,
 					multiline: true

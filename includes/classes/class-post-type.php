@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Post_Type class.
+ * Haste_Post_Type class.
  *
  * Built Custom Post Types.
  *
- * @package  Odin
+ * @package  Haste
  * @category Post Types
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Post_Type {
+class Haste_Post_Type {
 
 	/**
 	 * Array of labels for the post type.
@@ -64,20 +64,20 @@ class Odin_Post_Type {
 	 */
 	protected function labels() {
 		$default = array(
-			'name'               => sprintf( __( '%ss', 'odin' ), $this->name ),
-			'singular_name'      => sprintf( __( '%s', 'odin' ), $this->name ),
-			'view_item'          => sprintf( __( 'View %s', 'odin' ), $this->name ),
-			'edit_item'          => sprintf( __( 'Edit %s', 'odin' ), $this->name ),
-			'search_items'       => sprintf( __( 'Search %s', 'odin' ), $this->name ),
-			'update_item'        => sprintf( __( 'Update %s', 'odin' ), $this->name ),
-			'parent_item_colon'  => sprintf( __( 'Parent %s:', 'odin' ), $this->name ),
-			'menu_name'          => sprintf( __( '%ss', 'odin' ), $this->name ),
-			'add_new'            => __( 'Add New', 'odin' ),
-			'add_new_item'       => sprintf( __( 'Add New %s', 'odin' ), $this->name ),
-			'new_item'           => sprintf( __( 'New %s', 'odin' ), $this->name ),
-			'all_items'          => sprintf( __( 'All %ss', 'odin' ), $this->name ),
-			'not_found'          => sprintf( __( 'No %s found', 'odin' ), $this->name ),
-			'not_found_in_trash' => sprintf( __( 'No %s found in Trash', 'odin' ), $this->name )
+			'name'               => sprintf( __( '%ss', 'haste' ), $this->name ),
+			'singular_name'      => sprintf( __( '%s', 'haste' ), $this->name ),
+			'view_item'          => sprintf( __( 'View %s', 'haste' ), $this->name ),
+			'edit_item'          => sprintf( __( 'Edit %s', 'haste' ), $this->name ),
+			'search_items'       => sprintf( __( 'Search %s', 'haste' ), $this->name ),
+			'update_item'        => sprintf( __( 'Update %s', 'haste' ), $this->name ),
+			'parent_item_colon'  => sprintf( __( 'Parent %s:', 'haste' ), $this->name ),
+			'menu_name'          => sprintf( __( '%ss', 'haste' ), $this->name ),
+			'add_new'            => __( 'Add New', 'haste' ),
+			'add_new_item'       => sprintf( __( 'Add New %s', 'haste' ), $this->name ),
+			'new_item'           => sprintf( __( 'New %s', 'haste' ), $this->name ),
+			'all_items'          => sprintf( __( 'All %ss', 'haste' ), $this->name ),
+			'not_found'          => sprintf( __( 'No %s found', 'haste' ), $this->name ),
+			'not_found_in_trash' => sprintf( __( 'No %s found in Trash', 'haste' ), $this->name )
 		);
 
 		return array_merge( $default, $this->labels );

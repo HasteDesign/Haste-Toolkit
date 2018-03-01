@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Post_Status Class.
+ * Haste_Post_Status Class.
  *
  * Build Custom Post Status
  *
- * @package  Odin
+ * @package  Haste
  * @category Metabox
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Post_Status {
+class Haste_Post_Status {
 
 	 /**
 	 * The name of Custom Post Status.
@@ -110,7 +110,7 @@ class Odin_Post_Status {
 				$args['select'] = true;
 			}
 		}
-		printf( '<meta class="odin-custom-status-meta" value="%s" />', esc_attr( json_encode( $args ) ) );
+		printf( '<meta class="haste-custom-status-meta" value="%s" />', esc_attr( json_encode( $args ) ) );
 	}
 
 	/**
@@ -118,7 +118,7 @@ class Odin_Post_Status {
 	 */
 	public function scripts() {
 		// Load admin JS
-		wp_enqueue_script( 'odin-custom-status', get_template_directory_uri() . '/core/assets/js/admin-custom-status.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'haste-custom-status', get_template_directory_uri() . '/core/assets/js/admin-custom-status.js', array( 'jquery' ), null, true );
 
 	}
 }

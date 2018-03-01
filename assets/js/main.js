@@ -1,4 +1,3 @@
 /**
- * JavaScript
- * Write your front-end JS here.
+ * Write your own plugin JavaScript here
  */

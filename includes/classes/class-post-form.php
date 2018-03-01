@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Post_Form class.
+ * Haste_Post_Form class.
  *
  * Built Front End Post Forms.
  *
- * @package  Odin
+ * @package  Haste
  * @category Post Form
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Post_Form extends Odin_Front_End_Form {
+class Haste_Post_Form extends Haste_Front_End_Form {
 
 	/**
 	 * Post content field.
@@ -56,7 +56,7 @@ class Odin_Post_Form extends Odin_Front_End_Form {
 		parent::__construct( $this->id, '', 'post', $this->attributes );
 
 		// Hooks save_post.
-		add_action( 'odin_front_end_form_submitted_data_' . $this->id, array( $this, 'save_post' ) );
+		add_action( 'haste_front_end_form_submitted_data_' . $this->id, array( $this, 'save_post' ) );
 	}
 
 	/**
@@ -105,7 +105,7 @@ class Odin_Post_Form extends Odin_Front_End_Form {
 		if ( ! empty( $this->custom_fields ) ) {
 			foreach ( $this->custom_fields as $key ) {
 				// Apply filter to sanitization.
-				$data = apply_filters( 'odin_post_form_custom_field_data_' . $this->id, $submitted_data[ $key ] );
+				$data = apply_filters( 'haste_post_form_custom_field_data_' . $this->id, $submitted_data[ $key ] );
 
 				// Save custom field.
 				update_post_meta( $post_id, $key, $data );
@@ -123,7 +123,7 @@ class Odin_Post_Form extends Odin_Front_End_Form {
 		if ( ! empty( $this->terms ) ) {
 			foreach ( $this->terms as $taxonomy => $term ) {
 				// Apply filter to sanitization.
-				$term = apply_filters( 'odin_post_form_term_data_' . $this->id, $submitted_data[ $term ] );
+				$term = apply_filters( 'haste_post_form_term_data_' . $this->id, $submitted_data[ $term ] );
 
 				// Save term.
 				wp_set_post_terms( $post_id, $term, $taxonomy );
@@ -138,7 +138,7 @@ class Odin_Post_Form extends Odin_Front_End_Form {
 	 */
 	public function save_post( $submitted_data ) {
 		if ( ! empty( $submitted_data ) ) {
-			$post_data = apply_filters( 'odin_post_form_insert_data_' . $this->id, array(
+			$post_data = apply_filters( 'haste_post_form_insert_data_' . $this->id, array(
 				'post_content' => $submitted_data[ $this->content_field ],
 				'post_status'  => $this->post_status,
 				'post_title'   => sanitize_text_field( $submitted_data[ $this->title_field ] ),
@@ -154,7 +154,7 @@ class Odin_Post_Form extends Odin_Front_End_Form {
 			// Save terms.
 			$this->save_terms( $post_id, $submitted_data );
 
-			do_action( 'odin_post_form_after_save_' . $this->id, $post_id, $submitted_data );
+			do_action( 'haste_post_form_after_save_' . $this->id, $post_id, $submitted_data );
 		}
 	}
 }

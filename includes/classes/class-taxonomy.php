@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Taxonomy class.
+ * Haste_Taxonomy class.
  *
  * Built Custom Taxonomies.
  *
- * @package  Odin
+ * @package  Haste
  * @category Taxonomy
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Taxonomy {
+class Haste_Taxonomy {
 
 	/**
 	 * Array of labels for the Taxonomy.
@@ -66,21 +66,21 @@ class Odin_Taxonomy {
 	 */
 	protected function labels() {
 		$default = array(
-			'name'                       => sprintf( __( '%ss', 'odin' ), $this->name ),
-			'singular_name'              => sprintf( __( '%s', 'odin' ), $this->name ),
-			'add_or_remove_items'        => sprintf( __( 'Add or Remove %ss', 'odin' ), $this->name ),
-			'view_item'                  => sprintf( __( 'View %s', 'odin' ), $this->name ),
-			'edit_item'                  => sprintf( __( 'Edit %s', 'odin' ), $this->name ),
-			'search_items'               => sprintf( __( 'Search %s', 'odin' ), $this->name ),
-			'update_item'                => sprintf( __( 'Update %s', 'odin' ), $this->name ),
-			'parent_item'                => sprintf( __( 'Parent %s:', 'odin' ), $this->name ),
-			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'odin' ), $this->name ),
-			'menu_name'                  => sprintf( __( '%ss', 'odin' ), $this->name ),
-			'add_new_item'               => sprintf( __( 'Add New %s', 'odin' ), $this->name ),
-			'new_item_name'              => sprintf( __( 'New %s', 'odin' ), $this->name ),
-			'all_items'                  => sprintf( __( 'All %ss', 'odin' ), $this->name ),
-			'separate_items_with_commas' => sprintf( __( 'Separate %ss with comma', 'odin' ), $this->name ),
-			'choose_from_most_used'      => sprintf( __( 'Choose from %ss most used', 'odin' ), $this->name )
+			'name'                       => sprintf( __( '%ss', 'haste' ), $this->name ),
+			'singular_name'              => sprintf( __( '%s', 'haste' ), $this->name ),
+			'add_or_remove_items'        => sprintf( __( 'Add or Remove %ss', 'haste' ), $this->name ),
+			'view_item'                  => sprintf( __( 'View %s', 'haste' ), $this->name ),
+			'edit_item'                  => sprintf( __( 'Edit %s', 'haste' ), $this->name ),
+			'search_items'               => sprintf( __( 'Search %s', 'haste' ), $this->name ),
+			'update_item'                => sprintf( __( 'Update %s', 'haste' ), $this->name ),
+			'parent_item'                => sprintf( __( 'Parent %s:', 'haste' ), $this->name ),
+			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'haste' ), $this->name ),
+			'menu_name'                  => sprintf( __( '%ss', 'haste' ), $this->name ),
+			'add_new_item'               => sprintf( __( 'Add New %s', 'haste' ), $this->name ),
+			'new_item_name'              => sprintf( __( 'New %s', 'haste' ), $this->name ),
+			'all_items'                  => sprintf( __( 'All %ss', 'haste' ), $this->name ),
+			'separate_items_with_commas' => sprintf( __( 'Separate %ss with comma', 'haste' ), $this->name ),
+			'choose_from_most_used'      => sprintf( __( 'Choose from %ss most used', 'haste' ), $this->name )
 		);
 
 		return array_merge( $default, $this->labels );

@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Contact_Form class.
+ * Haste_Contact_Form class.
  *
  * Built Contact Forms.
  *
- * @package  Odin
+ * @package  Haste
  * @category Contact Form
  * @author   WPBrasil
  * @version  2.3.0
  */
-class Odin_Contact_Form extends Odin_Front_End_Form {
+class Haste_Contact_Form extends Haste_Front_End_Form {
 
 	/**
 	 * Mail content type.
@@ -53,7 +53,7 @@ class Odin_Contact_Form extends Odin_Front_End_Form {
 		parent::__construct( $this->id, '', 'post', $this->attributes );
 
 		// Hooks send_mail.
-		add_action( 'odin_front_end_form_submitted_data_' . $this->id, array( $this, 'send_mail' ), 1, 2 );
+		add_action( 'haste_front_end_form_submitted_data_' . $this->id, array( $this, 'send_mail' ), 1, 2 );
 	}
 
 	/**
@@ -129,7 +129,7 @@ class Odin_Contact_Form extends Odin_Front_End_Form {
 	 */
 	protected function build_mail_message( $submitted_data, $attachments ) {
 		// Sets the message header.
-		$message = apply_filters( 'odin_contact_form_message_header_' . $this->id, '' );
+		$message = apply_filters( 'haste_contact_form_message_header_' . $this->id, '' );
 
 		// Gets the submitted data.
 		$data = $this->process_submitted_form_data( $submitted_data, $attachments );
@@ -144,7 +144,7 @@ class Odin_Contact_Form extends Odin_Front_End_Form {
 		}
 
 		// Sets the message footer.
-		$message .= apply_filters( 'odin_contact_form_message_footer_' . $this->id, '' );
+		$message .= apply_filters( 'haste_contact_form_message_footer_' . $this->id, '' );
 
 		return $message;
 	}
@@ -179,7 +179,7 @@ class Odin_Contact_Form extends Odin_Front_End_Form {
 		} else {
 			// Default subject.
 			return sprintf(
-				__( 'Message sent by the form %s in %s at %s', 'odin' ),
+				__( 'Message sent by the form %s in %s at %s', 'haste' ),
 				$this->id,
 				date( get_option( 'date_format' ) ),
 				date( get_option( 'time_format' ) )
@@ -238,7 +238,7 @@ class Odin_Contact_Form extends Odin_Front_End_Form {
 			$headers[] = 'Content-type: text/html; charset=' . get_bloginfo( 'charset' );
 		}
 
-		return apply_filters( 'odin_contact_form_mail_headers_' . $this->id, $headers );
+		return apply_filters( 'haste_contact_form_mail_headers_' . $this->id, $headers );
 	}
 
 	/**

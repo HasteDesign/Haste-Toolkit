@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Options_Helper class.
+ * Haste_Options_Helper class.
  *
  * Helper for get the value of Theme Options.
  *
- * @package  Odin
+ * @package  Haste
  * @category Options
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Options_Helper {
+class Haste_Options_Helper {
 
 	/**
 	 * Option for the tab general.

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Odin_Shortcodes class.
+ * Haste_Shortcodes class.
  *
  * Built Shortcodes Menu on editor text.
  *
- * @package  Odin
+ * @package  Haste
  * @category Shortcodes
  * @author   WPBrasil
  * @version  2.9.0
  */
-class Odin_Shortcodes_Menu {
+class Haste_Shortcodes_Menu {
 
 	/**
 	 * Initialize the shortcode actions.
@@ -39,10 +39,10 @@ class Odin_Shortcodes_Menu {
 	 *
 	 * @param  array $plugins TinyMCE plugins.
 	 *
-	 * @return array          Odin TinyMCE plugin.
+	 * @return array          Haste TinyMCE plugin.
 	 */
 	public function add_shortcode_tinymce_plugin( $plugins ) {
-		$plugins[ 'odin_shortcodes' ] = plugins_url( '../../assets/js/editor-shortcodes.js', __FILE__ );
+		$plugins[ 'haste_shortcodes' ] = plugins_url( '../../assets/js/editor-shortcodes.js', __FILE__ );
 
 		return $plugins;
 	}
@@ -66,9 +66,9 @@ class Odin_Shortcodes_Menu {
 	 * @return array
 	 */
 	public function add_tinymce_locales( $locales ) {
-		$locales[ 'odin_shortcodes' ] = plugin_dir_path( __FILE__ ) . '/odin-shortcodes-editor-i18n.php';
+		$locales[ 'haste_shortcodes' ] = plugin_dir_path( __FILE__ ) . '/haste-shortcodes-editor-i18n.php';
 		return $locales;
 	}
 }
 
-new Odin_Shortcodes_Menu;
+new Haste_Shortcodes_Menu;

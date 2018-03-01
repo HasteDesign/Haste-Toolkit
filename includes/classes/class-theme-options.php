@@ -1,15 +1,15 @@
 <?php
 /**
- * Odin_Theme_Options class.
+ * Haste_Theme_Options class.
  *
  * Built settings page.
  *
- * @package  Odin
+ * @package  Haste
  * @category Options
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Odin_Theme_Options {
+class Haste_Theme_Options {
 
 	/**
 	 * Settings tabs.
@@ -76,19 +76,19 @@ class Odin_Theme_Options {
 			wp_enqueue_script( 'jquery-ui-sortable' );
 
 			// Theme Options.
-			wp_enqueue_style( 'odin-admin', get_template_directory_uri() . '/core/assets/css/admin.css', array(), null, 'all' );
-			wp_enqueue_script( 'odin-admin', get_template_directory_uri() . '/core/assets/js/admin.js', array( 'jquery' ), null, true );
+			wp_enqueue_style( 'haste-admin', get_template_directory_uri() . '/core/assets/css/admin.css', array(), null, 'all' );
+			wp_enqueue_script( 'haste-admin', get_template_directory_uri() . '/core/assets/js/admin.js', array( 'jquery' ), null, true );
 
 			// Localize strings.
 			wp_localize_script(
-				'odin-admin',
-				'odinAdminParams',
+				'haste-admin',
+				'hasteAdminParams',
 				array(
-					'galleryTitle'  => __( 'Add images in gallery', 'odin' ),
-					'galleryButton' => __( 'Add in gallery', 'odin' ),
-					'galleryRemove' => __( 'Remove image', 'odin' ),
-					'uploadTitle'   => __( 'Choose a file', 'odin' ),
-					'uploadButton'  => __( 'Add file', 'odin' ),
+					'galleryTitle'  => __( 'Add images in gallery', 'haste' ),
+					'galleryButton' => __( 'Add in gallery', 'haste' ),
+					'galleryRemove' => __( 'Remove image', 'haste' ),
+					'uploadTitle'   => __( 'Choose a file', 'haste' ),
+					'uploadButton'  => __( 'Add file', 'haste' ),
 				)
 			);
 		}
@@ -509,7 +509,7 @@ class Odin_Theme_Options {
 	 */
 	public function callback_color( $args ) {
 		// Sets color class.
-		$args['attributes']['class'] = 'odin-color-field';
+		$args['attributes']['class'] = 'haste-color-field';
 
 		$this->callback_input( $args );
 	}
@@ -529,7 +529,7 @@ class Odin_Theme_Options {
 		// Sets current option.
 		$current = esc_url( $this->get_option( $tab, $id, $args['default'] ) );
 
-		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text"%5$s /> <input class="button odin-upload-button" id="%1$s-button" type="button" value="%4$s" />', $id, $tab, $current, __( 'Select file', 'odin' ), $this->build_field_attributes( $attrs ) );
+		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="regular-text"%5$s /> <input class="button haste-upload-button" id="%1$s-button" type="button" value="%4$s" />', $id, $tab, $current, __( 'Select file', 'haste' ), $this->build_field_attributes( $attrs ) );
 
 		// Displays the description.
 		if ( $args['description'] ) {
@@ -555,7 +555,7 @@ class Odin_Theme_Options {
 
 		// Gets placeholder image.
 		$image = get_template_directory_uri() . '/core/assets/images/placeholder.png';
-		$html  = '<div class="odin-upload-image">';
+		$html  = '<div class="haste-upload-image">';
 		$html  .= '<span class="default-image">' . $image . '</span>';
 
 		if ( ! empty( $current ) ) {
@@ -563,7 +563,7 @@ class Odin_Theme_Options {
 			$image = $image[0];
 		}
 
-		$html .= sprintf( '<input id="%1$s" name="%2$s[%1$s]" type="hidden" class="image" value="%3$s" /><img src="%4$s" class="preview" style="height: 150px; width: 150px;" alt="" /><input id="%1$s-button" class="button" type="button" value="%5$s" /><ul class="actions"><li><a href="#" class="delete" title="%6$s"><span class="dashicons dashicons-no"></span></a></li></ul>', $id, $tab, $current, $image, __( 'Select image', 'odin' ), __( 'Remove image', 'odin' ) );
+		$html .= sprintf( '<input id="%1$s" name="%2$s[%1$s]" type="hidden" class="image" value="%3$s" /><img src="%4$s" class="preview" style="height: 150px; width: 150px;" alt="" /><input id="%1$s-button" class="button" type="button" value="%5$s" /><ul class="actions"><li><a href="#" class="delete" title="%6$s"><span class="dashicons dashicons-no"></span></a></li></ul>', $id, $tab, $current, $image, __( 'Select image', 'haste' ), __( 'Remove image', 'haste' ) );
 
 		$html .= '<br class="clear" />';
 		$html .= '</div>';
@@ -590,8 +590,8 @@ class Odin_Theme_Options {
 		// Sets current option.
 		$current = $this->get_option( $tab, $id, $args['default'] );
 
-		$html = '<div class="odin-gallery-container">';
-			$html .= '<ul class="odin-gallery-images">';
+		$html = '<div class="haste-gallery-container">';
+			$html .= '<ul class="haste-gallery-images">';
 				if ( ! empty( $current ) ) {
 					// Gets the current images.
 					$attachments = array_filter( explode( ',', $current ) );
@@ -601,7 +601,7 @@ class Odin_Theme_Options {
 							$html .= sprintf( '<li class="image" data-attachment_id="%1$s">%2$s<ul class="actions"><li><a href="#" class="delete" title="%3$s"><span class="dashicons dashicons-no"></span></a></li></ul></li>',
 								$attachment_id,
 								wp_get_attachment_image( $attachment_id, 'thumbnail' ),
-								__( 'Remove image', 'odin' )
+								__( 'Remove image', 'haste' )
 							);
 						}
 					}
@@ -609,10 +609,10 @@ class Odin_Theme_Options {
 			$html .= '</ul><div class="clear"></div>';
 
 			// Adds the hidden input.
-			$html .= sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="odin-gallery-field" />', $id, $tab, $current );
+			$html .= sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="haste-gallery-field" />', $id, $tab, $current );
 
 			// Adds "adds images in gallery" url.
-			$html .= sprintf( '<p class="odin-gallery-add hide-if-no-js"><a href="#">%s</a></p>', __( 'Add images in gallery', 'odin' ) );
+			$html .= sprintf( '<p class="haste-gallery-add hide-if-no-js"><a href="#">%s</a></p>', __( 'Add images in gallery', 'haste' ) );
 		$html .= '</div>';
 
 		// Displays the description.
@@ -651,7 +651,7 @@ class Odin_Theme_Options {
 
 			// Check to see if the current option has a value. If so, process it.
 			if ( isset( $input[ $key ] ) ) {
-				$output[ $key ] = apply_filters( 'odin_theme_options_validate_' . $this->id, $value, $key );
+				$output[ $key ] = apply_filters( 'haste_theme_options_validate_' . $this->id, $value, $key );
 			}
 
 		}

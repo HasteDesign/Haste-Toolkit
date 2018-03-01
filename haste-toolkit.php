@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Haste Toolkit
- * Plugin URI:
+ * Plugin URI: https://github.com/HasteDesign/Haste-Toolkit
  * Description: Use to add functionalities to be used in plugin or theme, or override the files to make your awesome new plugin.
  * Version: 0.0.1
  * Author: Haste
@@ -58,20 +58,20 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		   return self::$instance;
 	   }
 	   /**
-		* Return file name in odin pattern from class name. {Odin_Class_Name}
+		* Return file name in haste pattern from class name. {Haste_Class_Name}
 		*
 		* @param  	string $class
 		* @return 	string
 		* @since 	1.0.0
 		*/
 	   private function get_file_name_from_class( $class ) {
-		   $class = str_replace( 'Odin_', '', $class );
+		   $class = str_replace( 'Haste_', '', $class );
 		   $class = str_replace( '_', '-', $class );
 		   $class = strtolower( $class );
 		   return 'class-' . $class . '.php';
 	   }
 	   /**
-		* A final check if Odin Toolkit exists before kicking off our Odin Toolkit loading.
+		* A final check if Haste Toolkit exists before kicking off our Haste Toolkit loading.
 		* Haste_Toolkit_VERSION is defined at this point.
 		*
 		* @since  1.0.0
@@ -85,21 +85,21 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 
 		   // Load the functions.php
 		   require_once $this->plugin_dir . '/functions.php';
-		   require_once $this->plugin_dir . '/ajax.php';
 	   }
+
 	   /**
-		* Autoloads files with Odin classes when needed
+		* Autoloads files with Haste classes when needed
 		*
 		* @since  1.0.0
 		* @param  string $class_name Name of the class being requested
 		*/
 	   public function autoload_classes( $class_name ) {
-		   if ( 0 !== strpos( $class_name, 'Odin' ) ) {
+		   if ( 0 !== strpos( $class_name, 'Haste' ) ) {
 			   return;
 		   }
 		   $file = $this->get_file_name_from_class( $class_name );
 		   $path = 'includes/classes';
-		   if ( 'Odin_Front_End_Form' === $class_name ) {
+		   if ( 'Haste_Front_End_Form' === $class_name ) {
 			   $path .= '/abstracts';
 		   }
 		   include_once( $this->plugin_dir . "/$path/$file" );
