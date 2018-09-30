@@ -6,6 +6,9 @@
  * you can include them here.
  */
 
+// Admin
+require_once plugin_dir_path( __FILE__ ) . '/includes/admin/enqueue-scripts.php';
+
 // Custom Post Types
 // require_once plugin_dir_path( __FILE__ ) . '/includes/{your-filename}.php';
 

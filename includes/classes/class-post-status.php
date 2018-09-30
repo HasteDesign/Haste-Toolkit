@@ -118,7 +118,6 @@ class Haste_Post_Status {
 	 */
 	public function scripts() {
 		// Load admin JS
-		wp_enqueue_script( 'haste-custom-status', get_template_directory_uri() . '/core/assets/js/admin-custom-status.js', array( 'jquery' ), null, true );
-
+		wp_enqueue_script( 'haste-custom-status', plugins_url( '../../assets/js/admin-custom-status.js', __FILE__ ), array( 'jquery' ), null, true );
 	}
 }

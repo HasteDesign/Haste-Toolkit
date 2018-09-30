@@ -45,7 +45,6 @@ class Haste_Shortcodes_Menu {
 		$plugins[ 'haste_shortcodes' ] = plugins_url( '../../assets/js/editor-shortcodes.js', __FILE__ );
 
 		return $plugins;
-
 	}
 
 	/**
@@ -56,7 +55,6 @@ class Haste_Shortcodes_Menu {
 	 */
 	public function register_shortcode_button( $buttons ) {
 		array_push( $buttons, '|', 'haste' );
-
 		return $buttons;
 	}
 
@@ -68,10 +66,7 @@ class Haste_Shortcodes_Menu {
 	 * @return array
 	 */
 	public function add_tinymce_locales( $locales ) {
-		$locales[ 'haste_shortcodes' ] = plugins_url( 'haste-shortcodes-editor-i18n.php', __FILE__ );
-
+		$locales[ 'haste_shortcodes' ] = plugin_dir_path( __FILE__ ) . '/haste-shortcodes-editor-i18n.php';
 		return $locales;
 	}
 }
-
-new Haste_Shortcodes_Menu;

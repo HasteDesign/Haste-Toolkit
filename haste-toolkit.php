@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if( ! class_exists( 'Haste_Toolkit' ) ) {
-
    class Haste_Toolkit {
 	   /**
 		* Current version number
@@ -26,18 +25,21 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		* @since 1.0.0
 		*/
 	   const VERSION = '1.0.0';
+
 	   /**
 		* Instance of this class.
 		*
 		* @var object
 		*/
 	   protected static $instance = null;
+
 	   /**
 		* Plugin directory path
 		*
 		* @var string
 		*/
 	   private $plugin_dir = null;
+
 	   /**
 		* Initialize the plugin.
 		*/
@@ -46,6 +48,7 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		   add_action( 'init', array( $this, 'load_textdomain' ) );
 		   add_action( 'init', array( $this, 'includes' ), 0 );
 	   }
+
 	   /**
 		* Return the plugin instance.
 		*/
@@ -57,6 +60,7 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		   }
 		   return self::$instance;
 	   }
+
 	   /**
 		* Return file name in haste pattern from class name. {Haste_Class_Name}
 		*
@@ -70,6 +74,7 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		   $class = strtolower( $class );
 		   return 'class-' . $class . '.php';
 	   }
+
 	   /**
 		* A final check if Haste Toolkit exists before kicking off our Haste Toolkit loading.
 		* Haste_Toolkit_VERSION is defined at this point.
@@ -104,6 +109,7 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		   }
 		   include_once( $this->plugin_dir . "/$path/$file" );
 	   }
+
 	   /**
 		* Load plugin translation
 		*/

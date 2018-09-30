@@ -8,7 +8,7 @@
 		var haste_ui = new Haste_Shortcode_UI( editor, ed );
 
 		editor.addButton(
-			'jtfo', {
+			'haste', {
 				text: ed.getLang( 'haste.shortcode_title' ),
 				type: 'menubutton',
 

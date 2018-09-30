@@ -76,8 +76,8 @@ class Haste_Theme_Options {
 			wp_enqueue_script( 'jquery-ui-sortable' );
 
 			// Theme Options.
-			wp_enqueue_style( 'haste-admin', get_template_directory_uri() . '/core/assets/css/admin.css', array(), null, 'all' );
-			wp_enqueue_script( 'haste-admin', get_template_directory_uri() . '/core/assets/js/admin.js', array( 'jquery' ), null, true );
+			wp_enqueue_style( 'haste-admin', plugins_url( '../../assets/css/admin.css', __FILE__ ), array(), null, 'all' );
+			wp_enqueue_script( 'haste-admin', plugins_url( '../../assets/js/admin.js', __FILE__ ), array( 'jquery' ), null, true );
 
 			// Localize strings.
 			wp_localize_script(
@@ -554,7 +554,7 @@ class Haste_Theme_Options {
 		$current = $this->get_option( $tab, $id, $args['default'] );
 
 		// Gets placeholder image.
-		$image = get_template_directory_uri() . '/core/assets/images/placeholder.png';
+		$image = plugins_url( '../../assets/images/placeholder.png', __FILE__ );
 		$html  = '<div class="haste-upload-image">';
 		$html  .= '<span class="default-image">' . $image . '</span>';
 

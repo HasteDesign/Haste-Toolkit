@@ -89,8 +89,8 @@ class Haste_Metabox {
 			wp_enqueue_script( 'jquery-ui-sortable' );
 
 			// Metabox.
-			wp_enqueue_script( 'haste-admin', get_template_directory_uri() . '/core/assets/js/admin.js', array( 'jquery' ), null, true );
-			wp_enqueue_style( 'haste-admin', get_template_directory_uri() . '/core/assets/css/admin.css', array(), null, 'all' );
+			wp_enqueue_script( 'haste-admin', plugins_url( '../../assets/js/admin.js', __FILE__ ), array( 'jquery' ), null, true );
+			wp_enqueue_style( 'haste-admin', plugins_url( '../../assets/css/admin.css', __FILE__ ), array(), null, 'all' );
 
 			// Localize strings.
 			wp_localize_script(
@@ -506,7 +506,7 @@ class Haste_Metabox {
 	protected function field_image( $id, $current ) {
 
 		// Gets placeholder image.
-		$image = apply_filters( 'haste_placeholder_path', get_template_directory_uri() . '/core/assets/images/placeholder.png' );
+		$image = apply_filters( 'haste_placeholder_path', plugins_url( '../../assets/images/placeholder.png', __FILE__ ) );
 		$html  = '<div class="haste-upload-image">';
 		$html  .= '<span class="default-image">' . $image . '</span>';
 
