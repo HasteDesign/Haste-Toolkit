@@ -1,3 +1,3 @@
 /**
- * Write your own plugin JavaScript here
+ * Write your own plugin JavaScript in src/js/admin.js
  */
