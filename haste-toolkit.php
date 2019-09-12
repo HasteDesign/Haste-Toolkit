@@ -11,10 +11,27 @@
  * Domain Path: languages/
  */
 
- // Prevents direct access
-if ( ! defined( 'ABSPATH' ) ) {
-   exit;
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Load core packages and the autoloader.
+ *
+ * The new packages and autoloader require PHP 5.6+. If this dependency is not met, do not include them. Users will be warned
+ * that they are using an older version of PHP. WooCommerce will continue to load, but some functionality such as the REST API
+ * and Blocks will be missing.
+ *
+ * This requirement will be enforced in future versions of WooCommerce.
+ */
+if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
+	require __DIR__ . '/src/Autoloader.php';
+
+	if ( ! \Automattic\WooCommerce\Autoloader::init() ) {
+		return;
+	}
+	\HasteToolkit\Packages::init();
 }
+
 
 if( ! class_exists( 'Haste_Toolkit' ) ) {
    class Haste_Toolkit {
@@ -116,6 +133,7 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 	   public function load_textdomain() {
 		   load_plugin_textdomain( 'haste-toolkit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	   }
+
    }
 }
 
