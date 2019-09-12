@@ -11,30 +11,22 @@
  * Domain Path: languages/
  */
 
+namespace Haste\Toolkit;
+
 // Prevents direct access
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Load core packages and the autoloader.
- *
- * The new packages and autoloader require PHP 5.6+. If this dependency is not met, do not include them. Users will be warned
- * that they are using an older version of PHP. WooCommerce will continue to load, but some functionality such as the REST API
- * and Blocks will be missing.
- *
- * This requirement will be enforced in future versions of WooCommerce.
- */
+// Autoload
 if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
-	require __DIR__ . '/src/Autoloader.php';
-
-	if ( ! \Automattic\WooCommerce\Autoloader::init() ) {
-		return;
-	}
-	\HasteToolkit\Packages::init();
+	require __DIR__ . '/vendor/autoload.php';
 }
 
+if ( ! defined( 'HASTE_TOOLKIT_PLUGIN_FILE' ) ) {
+	define( 'HASTE_TOOLKIT_PLUGIN_FILE', __FILE__ );
+}
 
 if( ! class_exists( 'Haste_Toolkit' ) ) {
-   class Haste_Toolkit {
+   class HasteToolkit {
 	   /**
 		* Current version number
 		*
@@ -58,38 +50,14 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 	   private $plugin_dir = null;
 
 	   /**
-		* Initialize the plugin.
-		*/
-	   function __construct() {
-		   $this->plugin_dir = plugin_dir_path( __FILE__ );
-		   add_action( 'init', array( $this, 'load_textdomain' ) );
-		   add_action( 'init', array( $this, 'includes' ), 0 );
-	   }
-
-	   /**
 		* Return the plugin instance.
 		*/
-	   public static function init()
-	   {
-		   // If the single instance hasn't been set, set it now.
-		   if ( null == self::$instance ) {
-			   self::$instance = new self;
-		   }
-		   return self::$instance;
-	   }
+	   public static function init() {
+		   $self = new self();
+		   $self->plugin_dir = plugin_dir_path( __FILE__ );
 
-	   /**
-		* Return file name in haste pattern from class name. {Haste_Class_Name}
-		*
-		* @param  	string $class
-		* @return 	string
-		* @since 	1.0.0
-		*/
-	   private function get_file_name_from_class( $class ) {
-		   $class = str_replace( 'Haste_', '', $class );
-		   $class = str_replace( '_', '-', $class );
-		   $class = strtolower( $class );
-		   return 'class-' . $class . '.php';
+		   add_action( 'init', array( $self, 'load_textdomain' ) );
+		   add_action( 'init', array( $self, 'includes' ), 0 );
 	   }
 
 	   /**
@@ -99,32 +67,16 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 		* @since  1.0.0
 		*/
 	   public function includes() {
-		   if ( ! defined( 'Haste_Toolkit_VERSION' ) ) {
-			   define( 'Haste_Toolkit_VERSION', self::VERSION );
-		   }
-		   // Now kick off the class autoloader.
-		   spl_autoload_register( array( $this, 'autoload_classes' ) );
-
-		   // Load the functions.php
 		   require_once $this->plugin_dir . '/functions.php';
 	   }
 
 	   /**
-		* Autoloads files with Haste classes when needed
+		* Get the plugin url.
 		*
-		* @since  1.0.0
-		* @param  string $class_name Name of the class being requested
+		* @return string
 		*/
-	   public function autoload_classes( $class_name ) {
-		   if ( 0 !== strpos( $class_name, 'Haste' ) ) {
-			   return;
-		   }
-		   $file = $this->get_file_name_from_class( $class_name );
-		   $path = 'includes/classes';
-		   if ( 'Haste_Front_End_Form' === $class_name ) {
-			   $path .= '/abstracts';
-		   }
-		   include_once( $this->plugin_dir . "/$path/$file" );
+	   public static function plugin_url() {
+		   return untrailingslashit( plugins_url( '/', HASTE_TOOLKIT_PLUGIN_FILE ) );
 	   }
 
 	   /**
@@ -133,11 +85,6 @@ if( ! class_exists( 'Haste_Toolkit' ) ) {
 	   public function load_textdomain() {
 		   load_plugin_textdomain( 'haste-toolkit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	   }
-
    }
 }
-
-/**
-* Initialize the plugin actions.
-*/
-add_action( 'plugins_loaded', array( 'Haste_Toolkit', 'init' ) );
+add_action( 'plugins_loaded', array( 'Haste\Toolkit\HasteToolkit', 'init' ) );

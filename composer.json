@@ -1,0 +1,17 @@
+{
+    "name": "haste/haste-toolkit",
+    "description": "A WordPress plugin toolkit or scaffolding.",
+    "type": "project",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Allyson Souza",
+            "email": "allyson@hastedesign.com.br"
+        }
+    ],
+	"autoload": {
+	    "psr-4": {
+	        "Haste\\Toolkit\\Admin\\": "src/admin/"
+	    }
+	}
+}

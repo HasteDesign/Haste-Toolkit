@@ -33,3 +33,5 @@ node_modules
 sftp-config.json
 .ftppass
 *.zip
+
+/vendor/

@@ -1,5 +1,5 @@
 <?php
-namespace HasteToolkit;
+namespace Haste\Toolkit;
 
 /**
  * An example of a general-purpose implementation that includes the optional
@@ -45,7 +45,7 @@ namespace HasteToolkit;
  *      <?php
  *      new \Foo\Bar\Qux\QuuxTest;
  */
-class HasteToolkitPsr4AutoloaderClass {
+class Autoloader {
     /**
      * An associative array where the key is a namespace prefix and the value
      * is an array of base directories for classes in that namespace.
@@ -74,8 +74,7 @@ class HasteToolkitPsr4AutoloaderClass {
      * than last.
      * @return void
      */
-    public function addNamespace($prefix, $base_dir, $prepend = false)
-    {
+    public function addNamespace($prefix, $base_dir, $prepend = false) {
         // normalize namespace prefix
         $prefix = trim($prefix, '\\') . '\\';
 

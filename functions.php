@@ -1,13 +1,16 @@
 <?php
 /**
  * Use this file like a functions.php of your theme
- * 
+ *
  * We recommend to keep your code organized and split in files, and
  * you can include them here.
  */
+namespace Haste\Toolkit;
+
+Admin\EnqueueScripts::init();
 
 // Admin
-require_once plugin_dir_path( __FILE__ ) . '/includes/admin/enqueue-scripts.php';
+// require_once plugin_dir_path( __FILE__ ) . '/includes/admin/enqueue-scripts.php';
 
 // Custom Post Types
 // require_once plugin_dir_path( __FILE__ ) . '/includes/{your-filename}.php';
