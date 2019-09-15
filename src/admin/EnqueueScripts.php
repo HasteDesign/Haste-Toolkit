@@ -21,7 +21,8 @@ class EnqueueScripts {
 	 * @param  [type] $hook [description]
 	 * @return
 	 */
-	public function load_admin_styles( $hook ) {
+	public function load_admin_styles() {
+		var_dump( HasteToolkit::plugin_url() . '/assets/dist/css/admin.css' );
 	    wp_enqueue_style( 'haste-toolkit-admin', HasteToolkit::plugin_url() . '/assets/dist/css/admin.css' );
 	}
 }

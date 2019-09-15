@@ -8,15 +8,3 @@
 namespace Haste\Toolkit;
 
 Admin\EnqueueScripts::init();
-
-// Admin
-// require_once plugin_dir_path( __FILE__ ) . '/includes/admin/enqueue-scripts.php';
-
-// Custom Post Types
-// require_once plugin_dir_path( __FILE__ ) . '/includes/{your-filename}.php';
-
-// Custom Taxonomies
-// require_once plugin_dir_path( __FILE__ ) . '/includes/{your-filename}.php';
-
-// Custom Meta Boxes
-// require_once plugin_dir_path( __FILE__ ) . '/includes/{your-filename}.php';

@@ -1,4 +1,11 @@
 <?php
+
+namespace Haste\Toolkit\Admin;
+use Haste\Toolkit\HasteToolkit as HasteToolkit;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Theme_Options class.
  *
@@ -9,7 +16,7 @@
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Haste_Theme_Options {
+class ThemeOptions {
 
 	/**
 	 * Settings tabs.
