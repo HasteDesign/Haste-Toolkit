@@ -11,7 +11,7 @@
     ],
 	"autoload": {
 	    "psr-4": {
-	        "Haste\\Toolkit\\Admin\\": "src/admin/"
+	        "Haste\\Toolkit\\": "src/"
 	    }
 	}
 }
