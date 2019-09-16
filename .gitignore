@@ -23,6 +23,7 @@
 *.sublime-workspace
 nbproject
 Thumbs.db
+*.vscode
 
 # Folders to ignore
 bower_components
