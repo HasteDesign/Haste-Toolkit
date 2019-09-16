@@ -1,4 +1,11 @@
 <?php
+
+namespace Haste\Toolkit\PostTypes;
+use Haste\Toolkit\Forms\FrontEndForm as FrontEndForm;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Post_Form class.
  *
@@ -9,7 +16,7 @@
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Haste_Post_Form extends Haste_Front_End_Form {
+class PostForm extends FrontEndForm {
 
 	/**
 	 * Post content field.

@@ -1,4 +1,11 @@
 <?php
+
+namespace Haste\Toolkit\Users;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
+
 /**
  * Haste_User_Meta class.
  *
@@ -9,7 +16,7 @@
  * @author   WPBrasil
  * @version  2.2.5
  */
-class Haste_User_Meta {
+class UserMeta {
 
 	/**
 	 * User meta fields.

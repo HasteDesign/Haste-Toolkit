@@ -1,4 +1,10 @@
 <?php
+
+namespace Haste\Toolkit\Forms;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Front_End_Form class.
  *
@@ -9,7 +15,7 @@
  * @author   WPBrasil
  * @version  2.3.1
  */
-abstract class Haste_Front_End_Form {
+abstract class FrontEndForm {
 
 	/**
 	 * Form fields.

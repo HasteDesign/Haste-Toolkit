@@ -1,4 +1,10 @@
 <?php
+
+namespace Haste\Toolkit\Taxonomies;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Term_Meta class.
  *
@@ -9,7 +15,7 @@
  * @author   WPBrasil
  * @version  2.2.7
  */
-class Haste_Term_Meta {
+class TermMeta {
 
 	/**
 	 * Term meta fields.

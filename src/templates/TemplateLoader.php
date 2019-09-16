@@ -1,4 +1,11 @@
 <?php
+
+namespace Haste\Toolkit\Templates;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
+
 /**
  * Haste_Template_Loader class.
  *
@@ -8,7 +15,7 @@
  * @author   Allyson Souza
  * @version  1.0.0
  */
-class Haste_Template_Loader {
+class TemplateLoader {
 
 	/**
 	 * Single post type slug
@@ -30,7 +37,7 @@ class Haste_Template_Loader {
 	 * @var string
 	 */
     private $path = '';
-    
+
     function __construct( $single, $archive, $path ) {
         $this->single = $single;
         $this->archive = $archive;
@@ -38,7 +45,7 @@ class Haste_Template_Loader {
 
         // Define archive template for CPT
         add_filter( 'archive_template', array( $this, 'define_archive_template_files' ) );
-        
+
         // Define single template for CPT
         add_filter( 'single_template', array( $this, 'define_single_template_files' ) );
     }

@@ -1,5 +1,10 @@
-
 <?php
+
+namespace Haste\Toolkit\MetaBoxes;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Metabox class.
  *
@@ -11,7 +16,7 @@
  * @version  2.1.5
  */
 
-class Haste_Metabox {
+class Metabox {
 
 	/**
 	 * Metaboxs fields.

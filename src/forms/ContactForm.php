@@ -1,4 +1,10 @@
 <?php
+
+namespace Haste\Toolkit\Forms;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Contact_Form class.
  *
@@ -9,7 +15,7 @@
  * @author   WPBrasil
  * @version  2.3.0
  */
-class Haste_Contact_Form extends Haste_Front_End_Form {
+class ContactForm extends FrontEndForm {
 
 	/**
 	 * Mail content type.

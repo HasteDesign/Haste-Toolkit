@@ -1,4 +1,10 @@
 <?php
+
+namespace Haste\Toolkit\Taxonomies;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Taxonomy class.
  *
@@ -9,7 +15,7 @@
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Haste_Taxonomy {
+class Taxonomy {
 
 	/**
 	 * Array of labels for the Taxonomy.

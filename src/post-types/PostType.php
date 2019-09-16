@@ -1,4 +1,10 @@
 <?php
+
+namespace Haste\Toolkit\PostTypes;
+
+// Prevents direct access
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Haste_Post_Type class.
  *
@@ -9,7 +15,7 @@
  * @author   WPBrasil
  * @version  2.1.4
  */
-class Haste_Post_Type {
+class PostType {
 
 	/**
 	 * Array of labels for the post type.
