@@ -5,6 +5,3 @@
  * We recommend to keep your code organized and split in files, and
  * you can include them here.
  */
-namespace Haste\Toolkit;
-
-Admin\EnqueueScripts::init();

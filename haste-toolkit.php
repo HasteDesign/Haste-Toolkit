@@ -15,17 +15,16 @@ declare( strict_types = 1 );
 
 namespace Haste\Toolkit;
 
-
 // Prevents direct access
 defined( 'ABSPATH' ) || exit;
+
+if ( ! defined( 'HASTE_TOOLKIT_PLUGIN_FILE' ) ) {
+	define( 'HASTE_TOOLKIT_PLUGIN_FILE', __FILE__ );
+}
 
 // Autoload
 if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
-}
-
-if ( ! defined( 'HASTE_TOOLKIT_PLUGIN_FILE' ) ) {
-	define( 'HASTE_TOOLKIT_PLUGIN_FILE', __FILE__ );
 }
 
 if ( ! class_exists( 'HasteToolkit' ) ) {
