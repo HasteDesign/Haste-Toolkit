@@ -19,3 +19,14 @@ The plugin will do nothing, so you're able to start developing your functionalit
 
 ### The functions.php file
 The `functions.php` in the root of the plugin can be used almost like a `functions.php` of a theme. It was built to make easy to anyone familiar with WordPress theme functions to get started. Just put your hooks and callbacks there, and it should work!
+
+### OOP
+The plugin structure comes with a basic folder structure based on modern PHP development. The folder `/src` is where classes and interfaces should be, subdivided by "domains". For example, the structure comes with `/src/meta-boxes`, in that folder classes related to meta boxes will be placed, like meta box creation helpers, custom meta boxes registrations, etc. 
+
+But, we could have a different approach, understanding domains as a different thing, we could group all classes related to a specific functionality together, even if it means we'll end with classes that deal with meta boxes, custom post types, API's, etc. in the same folder.
+
+So, don't think too much about it, and get an approach that makes sense to you.
+
+### Autoload
+To generate the composer autoload, for the first time, you just have to run `composer install` and that will do it.
+If you have added new namespaces, you should run `composer dumpautoload -o`.
