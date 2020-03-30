@@ -13,6 +13,7 @@ You will need to download and rename Haste Toolkit to reflect the name and slugs
 - - Rename the main plugin file to reflect the folder name.
 - - Rename namespaces from `HasteToolkit`to `MyPluginNamespace`
 - - Rename comments, prefixes and other stuff, searching for `HasteToolkit`, `haste-toolkit`, `haste_toolkit`, `haste`.
+- - *Important:* rename the namespace in `composer.json`. The classes autoloader will use the values in that file to search for classes to include in the autoload generation.
 - Activate the plugin
 
 The plugin will do nothing, so you're able to start developing your functionalities in the way you want. The main plugin file is responsible to register the plugin, load the translation, load the composer PSR-4 autoload, and require the `functions.php` file.
